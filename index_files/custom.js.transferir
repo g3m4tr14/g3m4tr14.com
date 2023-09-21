@@ -1,0 +1,104 @@
+(function () {
+    //GLOBAL START
+    class Popup { constructor(t, e, s, o = null, a = !1) { this.height = t, this.width = e, this.urlFrame = s, this.closeBtnMessage = o, this.closeButton = a, this.background = document.createElement("div"), this.popupBox = document.createElement("div"), this.iframeHTML = document.createElement("iframe"), this.styleCSS = document.createElement("style"), this.createStyleInHead() } createStyleInHead() { document.head.appendChild(this.styleCSS) } actualizationStyleInHead(t) { const e = this.styleCSS.textContent; this.styleCSS.textContent = "", this.styleCSS.textContent = e + t } createPopup(t = 2e3, e = 300, s = !0) { if (this.background.style.cssText = "position: fixed;width: 100%;height: 100vh;top: 0;left: 0;z-index: 99999;background-color: rgba(0, 0, 0, 0.400);overflow: hidden;display: flex;justify-content: center;align-items: center;" + this.background.style.cssText, this.background.addEventListener("click", (t => { !0 === s && this.destroyPopup(e) })), this.popupBox.style.height = this.height + "px", this.popupBox.style.maxWidth = this.width + "px", this.popupBox.style.cssText = "width: 95%;position: relative;" + this.popupBox.style.cssText, this.iframeHTML.src = this.urlFrame, this.iframeHTML.style.cssText = "height: 100%;width: 100%;border: none;overflow: hidden;" + this.iframeHTML.style.cssText, setTimeout((() => { document.body.appendChild(this.background), this.background.appendChild(this.popupBox), this.popupBox.appendChild(this.iframeHTML) }), t), this.closeButton) { const t = document.createElement("img"); t.id = "salesmanagoCloseButton", t.style.cssText = "  width: 24px;height: 24px;position: absolute;top: -12px;right: -12px;cursor: pointer;", t.src = "https://s3-eu-west-1.amazonaws.com/salesmanagoimg/h4jsu6pc5txybj04/0zpqad8fbblhvnkt/1gewbaz3vklvnxr5.png", this.popupBox.appendChild(t) } else window.addEventListener("message", (t => { "object" != typeof t.data && t.data === this.closeBtnMessage && this.destroyPopup(e) })) } destroyPopup = (t = 300) => { this.actualizationStyleInHead(".sm-custom-delete {animation: sm-custom-delete " + t / 1e3 + "s both !important;} @keyframes sm-custom-delete {0% {opacity: 1;}100% {opacity: 0;}};"), this.background.classList.add("sm-custom-delete"), setTimeout((() => { this.background.remove() }), parseInt(t)) }; dynamicHeight(t) { window.addEventListener("message", (e => { "object" == typeof e.data && e.data.name === t && this.popupBox && (this.popupBox.style.height = e.data.value + "px") })) } createCustomCloseBtn = (t, e, s, o, a) => { const i = document.createElement("img"); i.id = "salesmanagoCloseButton", i.style.cssText = "width: " + e + "px;height: " + t + "px;position: absolute;top: " + o + "px;right: " + a + "px;cursor: pointer;", i.src = s, this.popupBox.appendChild(i) }; styleEdit(t, e) { switch (t) { case "background": this.background.style.cssText = e; break; case "popupBox": this.popupBox.style.cssText = e; break; case "iframeHTML": this.iframeHTML.style.cssText = e; break; default: console.log("Wrong element") } } defaultAnimation(t, e, s, o) { if (t === this.background || t === this.popupBox || t === this.iframeHTML) switch (e) { case "sm-custom-display": this.actualizationStyleInHead(".sm-custom-display {-webkit-animation: sm-custom-display " + s + "s " + o + "s both;animation: sm-custom-display " + s + "s " + o + "s both;} @-webkit-keyframes sm-custom-display {0% {opacity: 0%}100% {opacity: 100%}}@keyframes sm-custom-display {0% {opacity: 0%}100% {opacity: 100%}}"), t.classList.add(e); break; case "sm-custom-scale-up": this.actualizationStyleInHead(".sm-custom-scale-up {-webkit-animation: sm-custom-scale-up " + s + "s " + o + "s both;animation: sm-custom-scale-up " + s + "s " + o + "s both;} @-webkit-keyframes sm-custom-scale-up {0% {-webkit-transform: scale(0.4);transform: scale(0.4); opacity: 0%}100% {-webkit-transform: scale(1);transform: scale(1);opacity: 100%}}@keyframes sm-custom-scale-up {0% {-webkit-transform: scale(0.4);transform: scale(0.4);opacity: 0%}100% {-webkit-transform: scale(1);transform: scale(1);opacity: 100%}}"), t.classList.add(e); break; default: console.log("Wrong animation name") } else console.log("Wrong element") } customAnimation(t, e, s) { t === this.background || t === this.popupBox || t === this.iframeHTML ? (this.actualizationStyleInHead(s), t.classList.add(e)) : console.log("Wrong element") } }
+
+    class exitPopup { constructor(t, e, s, o = null, a = !1) { this.height = t, this.width = e, this.urlFrame = s, this.closeBtnMessage = o, this.closeButton = a, this.background = document.createElement("div"), this.popupBox = document.createElement("div"), this.iframeHTML = document.createElement("iframe"), this.styleCSS = document.createElement("style"), this.createStyleInHead() } createStyleInHead() { document.head.appendChild(this.styleCSS) } actualizationStyleInHead(t) { const e = this.styleCSS.textContent; this.styleCSS.textContent = "", this.styleCSS.textContent = e + t } createPopup(t = 2e3, e = 300, s = !0) { if (this.background.style.cssText = "position: fixed;width: 100%;height: 100vh;top: 0;left: 0;z-index: 99999;background-color: rgba(0, 0, 0, 0.400);overflow: hidden;display: flex;justify-content: center;align-items: center;" + this.background.style.cssText, this.background.addEventListener("click", (t => { !0 === s && this.destroyPopup(e) })), this.popupBox.style.height = this.height + "px", this.popupBox.style.maxWidth = this.width + "px", this.popupBox.style.cssText = "width: 95%;position: relative;" + this.popupBox.style.cssText, this.iframeHTML.src = this.urlFrame, this.iframeHTML.style.cssText = "height: 100%;width: 100%;border: none;overflow: hidden;" + this.iframeHTML.style.cssText, setTimeout((() => { document.body.appendChild(this.background), this.background.appendChild(this.popupBox), this.popupBox.appendChild(this.iframeHTML) }), t), this.closeButton) { const t = document.createElement("img"); t.id = "salesmanagoCloseButton", t.style.cssText = "  width: 24px;height: 24px;position: absolute;top: -12px;right: 1px;cursor: pointer;", t.src = "https://s3-eu-west-1.amazonaws.com/salesmanagoimg/h4jsu6pc5txybj04/0zpqad8fbblhvnkt/1gewbaz3vklvnxr5.png", this.popupBox.appendChild(t) } else window.addEventListener("message", (t => { "object" != typeof t.data && t.data === this.closeBtnMessage && this.destroyPopup(e) })) } destroyPopup = (t = 300) => { this.actualizationStyleInHead(".sm-custom-delete {animation: sm-custom-delete " + t / 1e3 + "s both !important;} @keyframes sm-custom-delete {0% {opacity: 1;}100% {opacity: 0;}};"), this.background.classList.add("sm-custom-delete"), setTimeout((() => { this.background.remove() }), parseInt(t)) }; dynamicHeight(t) { window.addEventListener("message", (e => { "object" == typeof e.data && e.data.name === t && this.popupBox && (this.popupBox.style.height = e.data.value + "px") })) } createCustomCloseBtn = (t, e, s, o, a) => { const i = document.createElement("img"); i.id = "salesmanagoCloseButton", i.style.cssText = "width: " + e + "px;height: " + t + "px;position: absolute;top: " + o + "px;right: " + a + "px;cursor: pointer;", i.src = s, this.popupBox.appendChild(i) }; styleEdit(t, e) { switch (t) { case "background": this.background.style.cssText = e; break; case "popupBox": this.popupBox.style.cssText = e; break; case "iframeHTML": this.iframeHTML.style.cssText = e; break; default: console.log("Wrong element") } } defaultAnimation(t, e, s, o) { if (t === this.background || t === this.popupBox || t === this.iframeHTML) switch (e) { case "sm-custom-display": this.actualizationStyleInHead(".sm-custom-display {-webkit-animation: sm-custom-display " + s + "s " + o + "s both;animation: sm-custom-display " + s + "s " + o + "s both;} @-webkit-keyframes sm-custom-display {0% {opacity: 0%}100% {opacity: 100%}}@keyframes sm-custom-display {0% {opacity: 0%}100% {opacity: 100%}}"), t.classList.add(e); break; case "sm-custom-scale-up": this.actualizationStyleInHead(".sm-custom-scale-up {-webkit-animation: sm-custom-scale-up " + s + "s " + o + "s both;animation: sm-custom-scale-up " + s + "s " + o + "s both;} @-webkit-keyframes sm-custom-scale-up {0% {-webkit-transform: scale(0.4);transform: scale(0.4); opacity: 0%}100% {-webkit-transform: scale(1);transform: scale(1);opacity: 100%}}@keyframes sm-custom-scale-up {0% {-webkit-transform: scale(0.4);transform: scale(0.4);opacity: 0%}100% {-webkit-transform: scale(1);transform: scale(1);opacity: 100%}}"), t.classList.add(e); break; default: console.log("Wrong animation name") } else console.log("Wrong element") } customAnimation(t, e, s) { t === this.background || t === this.popupBox || t === this.iframeHTML ? (this.actualizationStyleInHead(s), t.classList.add(e)) : console.log("Wrong element") } }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    const smClientSM = getCookie("smclient");
+    const engSite = window.location.pathname.includes('/en');
+    
+    
+    let phraseCheck = false;
+
+    const phrases = [
+        '/',
+        'promo',
+        'games'
+    ];
+
+    phrases.some(phrase => {
+        if (location.href.includes(phrase)) {
+            phraseCheck = true;
+            return true;
+        }
+    });
+
+    const showPopupWithCustomDate = (startdate, enddate, classPopup, width, popupLink, dynamicHeight, countdown) => {
+        const currentDate = new Date();
+        const startDate = new Date(startdate);
+        const endDate = new Date(enddate);
+
+        if (currentDate >= startDate && currentDate <= endDate) {
+            const popupGog = new classPopup(0, width, popupLink, null, true);
+            popupGog.dynamicHeight(dynamicHeight);
+            popupGog.createPopup(countdown);
+
+        }
+    }
+
+    //GLOBAL END
+    //TS-37134 START
+    (function () {
+        if (engSite && window.location.href.includes('customCyberSMPopup=true')) {
+                const blockPopup = getCookie('sm_popup_block_GOG');
+                const checkIfSouldDisplay = "https://gog.salesmanago.com/ms/3f5ada29ba85a3ae/default/endpoint_tags_to_check.htm?contactId=" + smClientSM;
+                if (!blockPopup && smClientSM && phraseCheck && !window.location.href.includes('https://www.gog.com/en/game/')) {
+                    fetch(checkIfSouldDisplay)
+                        .then(res => res.text())
+                        .then(data => {
+                            const parser = new DOMParser();
+                            const htmlDocument = parser.parseFromString(data, 'text/html');
+                            const response = htmlDocument.querySelector('body').textContent.trim();
+                            console.log(response);
+                            if (response === 'true') {
+                                const popupLink = "https://gog.salesmanago.com/ms/3f5ada29ba85a3ae/default/Gog_popup_cyberpunk_timer.htm?contactId=" + smClientSM;
+                                showPopupWithCustomDate("2023-08-28T12:30:00", "2023-09-26T23:59:59", Popup, 600, popupLink, 'dynamic_GOG_CYBER_POPUP_height_SM', 5000);
+                                setTimeout(() => { setCookie('sm_popup_block_GOG', true, 1) }, 5000);
+                            }
+                        })
+                }
+        }
+    })();
+    //TS-37134 END
+
+    (function () {
+        const showExitPopup = () => {
+            if (engSite) {
+                const blockExitPopup = getCookie('sm_exit_popup_block_GOG');
+                if (!blockExitPopup && phraseCheck && !window.location.href.includes('https://www.gog.com/en/game/')) {
+                    const popupLink = "https://gog.salesmanago.com/ms/3f5ada29ba85a3ae/default/Gog_popup_timer.htm ";
+                    showPopupWithCustomDate("2023-09-09T15:00:00", "2023-09-11T23:59:59", exitPopup, 600, popupLink, 'dynamic_GOG_EXIT_POPUP_height_SM', 0);
+                    setCookie('sm_exit_popup_block_GOG', true, 1);
+                }
+            }
+        }
+        if (window.innerWidth > 800) {
+            document.body.addEventListener('mouseleave', showExitPopup);
+        } else {
+            setTimeout(function () {
+                showExitPopup();
+            }, 5000);
+        }
+    })();
+})();
